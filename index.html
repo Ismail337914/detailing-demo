@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="bs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fejsal Detailing Studio | Premium Njega Vozila</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#f97316',
+                            red: '#ea580c',
+                            dark: '#020617',
+                            card: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styling za Before/After Slider */
+        .ba-container { position: relative; overflow: hidden; }
+        .ba-image-before { position: absolute; top: 0; left: 0; height: 100%; width: 50%; overflow: hidden; }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-brand-orange selection:text-black pb-16 md:pb-0">
+
+    <!-- NAVBAR -->
+    <nav class="border-b border-slate-800/80 bg-brand-dark/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <span class="text-xl md:text-2xl font-black tracking-widest text-white uppercase">
+                    FEJSAL<span class="text-brand-orange">.</span>DETAILING
+                </span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide text-slate-400">
+                <a href="#usluge" class="hover:text-brand-orange transition-colors">USLUGE</a>
+                <a href="#transformacija" class="hover:text-brand-orange transition-colors">TRANSFORMACIJA</a>
+                <a href="#galerija" class="hover:text-brand-orange transition-colors">GALERIJA</a>
+                <a href="#kontakt" class="hover:text-brand-orange transition-colors">KONTAKT</a>
+            </div>
+
+            <div class="hidden md:block">
+                <a href="#kontakt" class="bg-gradient-to-r from-brand-red to-brand-orange text-black font-extrabold px-6 py-2.5 rounded-xl hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all transform hover:-translate-y-0.5 inline-block">
+                    ZAKAŽI TERMIN
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-300 focus:outline-none p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-3">
+            <a href="#usluge" class="block text-slate-300 hover:text-brand-orange font-medium">USLUGE</a>
+            <a href="#transformacija" class="block text-slate-300 hover:text-brand-orange font-medium">TRANSFORMACIJA</a>
+            <a href="#galerija" class="block text-slate-300 hover:text-brand-orange font-medium">GALERIJA</a>
+            <a href="#kontakt" class="block text-brand-orange font-bold">ZAKAŽI TERMIN &rarr;</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 md:pt-20 pb-20 md:pb-32 overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-brand-orange/10 rounded-full blur-[100px] md:blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/30 text-brand-orange text-xs font-bold tracking-widest uppercase mb-6">
+                Vrhunska njegu i zaštita vozila
+            </span>
+            <h1 class="text-4xl md:text-7xl font-black text-white uppercase tracking-tight max-w-4xl mx-auto leading-tight md:leading-none mb-6">
+                VRATITE VAŠEM AUTU <span class="bg-gradient-to-r from-brand-orange via-amber-400 to-brand-red bg-clip-text text-transparent">FABRIČKI SJAJ</span>
+            </h1>
+            <p class="text-slate-400 text-base md:text-xl max-w-2xl mx-auto mb-10 font-normal">
+                Specijalizovani studio za dubinsko čišćenje, višeslojno poliranje i dugotrajnu keramičku zaštitu laka.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#kontakt" class="w-full sm:w-auto bg-gradient-to-r from-brand-red to-brand-orange text-black font-extrabold px-8 py-4 rounded-xl hover:shadow-[0_0_25px_rgba(249,115,22,0.5)] transition-all transform hover:-translate-y-1">
+                    ZAKAŽI TERMIN &rarr;
+                </a>
+                <a href="#usluge" class="w-full sm:w-auto border border-slate-700 bg-slate-900/50 text-white font-semibold px-8 py-4 rounded-xl hover:bg-slate-800 hover:border-slate-600 transition-all">
+                    POGLEDAJ USLUGE
+                </a>
+            </div>
+
+            <!-- STATISTIKA -->
+            <div class="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mt-16 p-4 md:p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 backdrop-blur-sm">
+                <div>
+                    <div class="text-2xl md:text-3xl font-black text-white">500+</div>
+                    <div class="text-[10px] md:text-xs font-medium text-slate-400 uppercase mt-1">Sređenih vozila</div>
+                </div>
+                <div>
+                    <div class="text-2xl md:text-3xl font-black text-brand-orange">100%</div>
+                    <div class="text-[10px] md:text-xs font-medium text-slate-400 uppercase mt-1">Sjaj & Zaštita</div>
+                </div>
+                <div>
+                    <div class="text-2xl md:text-3xl font-black text-white">5.0 ★</div>
+                    <div class="text-[10px] md:text-xs font-medium text-slate-400 uppercase mt-1">Ocjena klijenata</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USLUGE SECTION -->
+    <section id="usluge" class="py-20 bg-slate-950 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">NAŠE USLUGE</h2>
+                <p class="text-slate-400 mt-3 text-xs md:text-sm tracking-wide">IZABERITE TRETMAN KOJI ODGOVARA VAŠEM VOZILU</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- KARTICA 1 -->
+                <div class="bg-brand-card p-8 rounded-2xl border border-slate-800 hover:border-brand-orange/50 transition-all group hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-orange/10 rounded-xl flex items-center justify-center text-brand-orange font-bold text-xl mb-6 group-hover:bg-brand-orange group-hover:text-black transition-colors">
+                            ✨
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Poliranje & Korekcija Laka</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Uklanjanje mikro-ogrebotina, holograma i tragova pranja. Vraćanje dubine boje i kristalnog sjaja.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 uppercase font-semibold">Cijena</span>
+                        <span class="text-brand-orange font-extrabold text-lg">VEĆ OD 150 KM</span>
+                    </div>
+                </div>
+
+                <!-- KARTICA 2 (HIGHLIGHTED) -->
+                <div class="bg-gradient-to-b from-slate-900 to-brand-card p-8 rounded-2xl border-2 border-brand-orange/80 shadow-[0_0_30px_rgba(249,115,22,0.15)] relative transform md:-translate-y-2 flex flex-col justify-between">
+                    <span class="absolute -top-3.5 right-6 bg-brand-orange text-black font-extrabold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full">Najpopularnije</span>
+                    <div>
+                        <div class="w-12 h-12 bg-brand-orange rounded-xl flex items-center justify-center text-black font-bold text-xl mb-6">
+                            🛡️
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Keramička Zaštita</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Dugotrajna nano-keramička zaštita koja štiti lak od UV zračenja, soli, kiselih kiša i daje hidrofobni efekat.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 uppercase font-semibold">Cijena</span>
+                        <span class="text-brand-orange font-extrabold text-lg">VEĆ OD 300 KM</span>
+                    </div>
+                </div>
+
+                <!-- KARTICA 3 -->
+                <div class="bg-brand-card p-8 rounded-2xl border border-slate-800 hover:border-brand-orange/50 transition-all group hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-orange/10 rounded-xl flex items-center justify-center text-brand-orange font-bold text-xl mb-6 group-hover:bg-brand-orange group-hover:text-black transition-colors">
+                            🧼
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Dubinsko Čišćenje</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Detaljno čišćenje i dezinfekcija enterijera, mašinsko pranje sjedišta, ekstrakcija i zaštita kože.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 uppercase font-semibold">Cijena</span>
+                        <span class="text-brand-orange font-extrabold text-lg">VEĆ OD 100 KM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE / AFTER INTERAKTIVNA SEKCIJA -->
+    <section id="transformacija" class="py-20 bg-brand-dark">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-brand-orange text-xs font-bold uppercase tracking-widest">Rezultati govore sve</span>
+                <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mt-2">PRIJE I POSLIJE</h2>
+                <p class="text-slate-400 text-sm mt-2">Povucite slajder da vidite snagu korekcije laka</p>
+            </div>
+
+            <!-- SLIDER CONTAINER -->
+            <div class="relative w-full h-[300px] md:h-[450px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl ba-container select-none">
+                <!-- Slika POSLIJE (Pozadina) -->
+                <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Poslije poliranja">
+                <span class="absolute top-4 right-4 bg-black/70 backdrop-blur-md text-brand-orange px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">POSLIJE (Polirano & Keramika)</span>
+
+                <!-- Slika PRIJE (Preko) -->
+                <div id="ba-before" class="ba-image-before">
+                    <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fe?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover max-w-none filter grayscale contrast-125" alt="Prije poliranja">
+                    <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">PRIJE (Oštećen lak)</span>
+                </div>
+
+                <!-- Range Input Kontrola -->
+                <input type="range" min="0" max="100" value="50" id="ba-slider" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30">
+                
+                <!-- Razdvojna linija -->
+                <div id="ba-line" class="absolute top-0 bottom-0 left-1/2 w-1 bg-brand-orange z-20 pointer-events-none">
+                    <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-brand-orange text-black rounded-full flex items-center justify-center font-bold text-xs shadow-lg">
+                        ↔
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULAR ZA REZERVACIJU / KONTAKT -->
+    <section id="kontakt" class="py-20 bg-slate-950 border-t border-slate-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-brand-card p-8 md:p-12 rounded-3xl border border-slate-800 relative overflow-hidden">
+                <div class="absolute -bottom-10 -right-10 w-60 h-60 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tight">ZAKAŽITE TRETMAN</h2>
+                    <p class="text-slate-400 text-sm mt-2">Ispunite formu i javljamo vam se u roku od 30 minuta s ponudom.</p>
+                </div>
+
+                <form onsubmit="event.preventDefault(); alert('Zahtjev poslan! Fejsal će Vas kontaktirati uskoro.');" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Ime i Prezime</label>
+                            <input type="text" placeholder="npr. Marko Marković" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Broj Telefona</label>
+                            <input type="tel" placeholder="061 123 456" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Model Vozila</label>
+                            <input type="text" placeholder="npr. BMW M4 2021" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Željena Usluga</label>
+                            <select class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
+                                <option>Poliranje & Korekcija Laka</option>
+                                <option>Keramička Zaštita</option>
+                                <option>Dubinsko Čišćenje</option>
+                                <option>Kompletan Paket (All Inclusive)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-brand-red to-brand-orange text-black font-extrabold py-4 rounded-xl hover:shadow-[0_0_25px_rgba(249,115,22,0.5)] transition-all">
+                        POŠALJI ZAHTJEV &rarr;
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-brand-dark border-t border-slate-900 text-center text-xs text-slate-500">
+        <p>© 2026 FEJSAL DETAILING STUDIO. SVA PRAVA ZADRŽANA.</p>
+    </footer>
+
+    <!-- STICKY MOBILE BAR ZA POZIV (Vidljivo samo na mobitelu) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 p-3 z-50 flex gap-3">
+        <a href="tel:+38761000000" class="flex-1 bg-slate-800 text-white font-bold py-2.5 rounded-lg text-center text-xs flex items-center justify-center gap-2 border border-slate-700">
+            📞 POZOVI
+        </a>
+        <a href="#kontakt" class="flex-1 bg-gradient-to-r from-brand-red to-brand-orange text-black font-extrabold py-2.5 rounded-lg text-center text-xs flex items-center justify-center gap-2">
+            📅 ZAKAŽI
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT ZA INTERAKCIJE -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Before / After Slider Logic
+        const slider = document.getElementById('ba-slider');
+        const beforeImg = document.getElementById('ba-before');
+        const line = document.getElementById('ba-line');
+
+        slider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            beforeImg.style.width = `${val}%`;
+            line.style.left = `${val}%`;
+        });
+    </script>
+</body>
+</html>
