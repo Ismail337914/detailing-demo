@@ -249,32 +249,34 @@
                     <p class="text-slate-400 text-sm mt-2">Ispunite formu i Fejsal će Vas kontaktirati u najkraćem roku.</p>
                 </div>
 
-                <form onsubmit="event.preventDefault(); alert('Zahtjev poslan! Fejsal će Vas kontaktirati uskoro.');" class="space-y-6">
+                <form id="contact-form" action="https://formspree.io/f/xbgraggv" method="POST" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Ime i Prezime</label>
-                            <input type="text" placeholder="npr. Marko Marković" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
+                            <input type="text" name="ime_i_prezime" placeholder="npr. Marko Marković" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
                         </div>
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Broj Telefona</label>
-                            <input type="tel" placeholder="061 123 456" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
+                            <input type="tel" name="telefon" placeholder="061 123 456" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Model Vozila</label>
-                            <input type="text" placeholder="npr. Golf 7 2017" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
+                            <input type="text" name="model_vozila" placeholder="npr. Golf 7 2017" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
                         </div>
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Željena Usluga</label>
-                            <select class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
+                            <select name="usluga" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition-colors">
                                 <option>Dubinsko Čišćenje Enterijera</option>
                                 <option>Poliranje Farova</option>
                                 <option>Kompletan Paket (Dubinsko + Farovi)</option>
                             </select>
                         </div>
                     </div>
+
+                    <div id="form-message" class="hidden rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300"></div>
 
                     <button type="submit" class="w-full bg-gradient-to-r from-brand-red to-brand-orange text-black font-extrabold py-4 rounded-xl hover:shadow-[0_0_25px_rgba(249,115,22,0.5)] transition-all">
                         POŠALJI ZAHTJEV &rarr;
@@ -328,6 +330,16 @@
             beforeImg.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
             line.style.left = `${val}%`;
         });
+
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        if (contactForm && formMessage) {
+            contactForm.addEventListener('submit', function () {
+                formMessage.textContent = 'Poruka je poslana! Fejsal će Vas kontaktirati uskoro.';
+                formMessage.classList.remove('hidden');
+            });
+        }
     </script>
 </body>
 </html>
