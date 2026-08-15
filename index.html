@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fejsal Detailing Studio | Premium Njega Vozila</title>
+    <title>FMDetailing Studio | Premium Njega Vozila</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -22,6 +22,33 @@
             }
         }
     </script>
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .before-after-slider {
+            touch-action: pan-y;
+        }
+
+        @media (max-width: 640px) {
+            .mobile-nav-logo {
+                letter-spacing: 0.08em;
+            }
+        }
+    </style>
 </head>
 <body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-brand-orange selection:text-black pb-16 md:pb-0">
 
@@ -29,8 +56,8 @@
     <nav class="border-b border-slate-800/80 bg-brand-dark/90 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-2">
-                <span class="text-xl md:text-2xl font-black tracking-widest text-white uppercase">
-                    FEJSAL<span class="text-brand-orange">.</span>DETAILING
+                <span class="mobile-nav-logo text-lg sm:text-xl md:text-2xl font-black tracking-widest text-white uppercase">
+                    FM<span class="text-brand-orange">.</span>DETAILING
                 </span>
             </a>
 
@@ -183,11 +210,11 @@
             <div class="relative w-full h-[300px] md:h-[450px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl select-none">
                 
                 <!-- Slika POSLIJE (Cijela pozadina) -->
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Poslije tretmana">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Poslije tretmana">
                 
                 <!-- Slika PRIJE (Lijevi dio koji se reže preko clip-path) -->
                 <div id="ba-before" class="absolute inset-0 w-full h-full overflow-hidden" style="clip-path: inset(0 50% 0 0);">
-                    <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fe?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover filter contrast-125 brightness-90 grayscale" alt="Prije tretmana">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover filter contrast-125 brightness-90 grayscale" alt="Prije tretmana">
                 </div>
 
                 <!-- FIKSIRANE ZASTAVICE KOJE SE NE POMJERAJU -->
@@ -199,7 +226,7 @@
                 </span>
 
                 <!-- Range Input Kontrola -->
-                <input type="range" min="0" max="100" value="50" id="ba-slider" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30">
+                <input type="range" min="0" max="100" value="50" id="ba-slider" class="before-after-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30">
                 
                 <!-- Razdvojna linija -->
                 <div id="ba-line" class="absolute top-0 bottom-0 left-1/2 w-1 bg-brand-orange z-20 pointer-events-none -translate-x-1/2">
@@ -278,9 +305,17 @@
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileMenu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
 
         // Before / After Slider Logic sa Clip-Path
         const slider = document.getElementById('ba-slider');
